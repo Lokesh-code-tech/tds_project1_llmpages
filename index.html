@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asset Playground - GitHub Pages Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Asset Playground</h1>
+    <p class="tagline">Static assets via a pure HTML/JS site (no back-end)</p>
+  </header>
+  <main class="container">
+    <section class="intro" aria-label="intro">
+      <p>This page lets you download and preview a set of files that would normally live in a GitHub Pages repository. All content is generated client-side and is stored in your browser via localStorage to demonstrate persistence. Use the file panels below to preview or download each asset. You can also attach a CSV or an image to see client-side processing in action.</p>
+    </section>
+
+    <section id="asset-list" aria-label="assets">
+      <h2>Assets</h2>
+      <div class="grid">
+        <!-- Asset cards (download & preview) -->
+        <div class="card">
+          <h3>ashravan.txt</h3>
+          <p>Brandon Sanderson-inspired short story about Ashravan after Shai restores him.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="ashravan.txt">Preview</button>
+            <button class="btn download" data-file="ashravan.txt">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>dilemma.json</h3>
+          <p>Autonomous vehicle moral dilemma scenario in JSON.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="dilemma.json">Preview</button>
+            <button class="btn download" data-file="dilemma.json">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>about.md</h3>
+          <p>Describe yourself in three words.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="about.md">Preview</button>
+            <button class="btn download" data-file="about.md">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>pelican.svg</h3>
+          <p>SVG illustration: pelican on a bicycle.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="pelican.svg">Preview</button>
+            <button class="btn download" data-file="pelican.svg">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>restaurant.json</h3>
+          <p>Restaurant recommendation in Kolkata.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="restaurant.json">Preview</button>
+            <button class="btn download" data-file="restaurant.json">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>prediction.json</h3>
+          <p>Forecast of Fed Funds rate for December 2025.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="prediction.json">Preview</button>
+            <button class="btn download" data-file="prediction.json">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>uid.txt</h3>
+          <p>Upload the uid attachment as-is.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="uid.txt">Preview</button>
+            <button class="btn download" data-file="uid.txt">Download</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>LICENSE</h3>
+          <p>MIT License text.</p>
+          <div class="btn-row">
+            <button class="btn preview" data-file="LICENSE">Preview</button>
+            <button class="btn download" data-file="LICENSE">Download</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="attachments" aria-label="attachments">
+      <h2>Attach a CSV or Image (client-side processing)</h2>
+      <input type="file" id="fileInput" accept=".csv,image/*" />
+      <div id="uploadPreview" class="preview-area" aria-live="polite"></div>
+    </section>
+
+    <section id="log" aria-label="download-log">
+      <h2>Download Log</h2>
+      <ul id="logList"></ul>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Preview content">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn" aria-label="Close modal">Close</button>
+      <pre id="modalContent"></pre>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Built for GitHub Pages demonstration. All content is generated locally in your browser.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
